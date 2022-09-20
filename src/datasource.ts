@@ -20,7 +20,7 @@ class CustomIntegration implements IntegrationBase {
     if (query.extra.subtype === "schedules") {
       return await this.stripe.subscriptionSchedules.create(query.json as Stripe.SubscriptionScheduleCreateParams)
     }
-    throw new Error("You must provide a sub-type!")
+    throw new Error("You must provide a type!")
   }
 
   async read(query: { id: string; extra: { [key: string]: string } }) {
@@ -33,7 +33,7 @@ class CustomIntegration implements IntegrationBase {
     if (query.extra.subtype === "schedules") {
       return await this.stripe.subscriptionSchedules.retrieve(query.id)
     }
-    throw new Error("You must provide a sub-type!")
+    throw new Error("You must provide a type!")
   }
 
   async update(query: { id: string, body: string; extra: { [key: string]: string } }) {
@@ -46,7 +46,7 @@ class CustomIntegration implements IntegrationBase {
     if (query.extra.subtype === "schedules") {
       return await this.stripe.subscriptionSchedules.update(query.id, JSON.parse(query.body))
     }
-    throw new Error("You must provide a sub-type!")
+    throw new Error("You must provide a type!")
   }
 
   async delete(query: { id: string; extra: { [key: string]: string } }) {
@@ -59,7 +59,7 @@ class CustomIntegration implements IntegrationBase {
     if (query.extra.subtype === "schedules") {
       return await this.stripe.subscriptionSchedules.cancel(query.id)
     }
-    throw new Error("You must provide a sub-type!")
+    throw new Error("You must provide a type!")
   }
 
   async list(query: { json: object; extra: { [key: string]: string } }) {
@@ -72,7 +72,7 @@ class CustomIntegration implements IntegrationBase {
     if (query.extra.subtype === "schedules") {
       return await this.stripe.subscriptionSchedules.list(query.json)
     }
-    throw new Error("You must provide a sub-type!")
+    throw new Error("You must provide a type!")
   }
 
   async searchSubscriptions(query: { query: string, limit: number, page: string }) {

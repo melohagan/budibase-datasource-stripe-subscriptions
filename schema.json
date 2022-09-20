@@ -84,7 +84,7 @@
     },
     "extra": {
       "type": {
-        "displayName": "Sub-type",
+        "displayName": "Type",
         "type": "list",
         "required": true,
         "data": {
