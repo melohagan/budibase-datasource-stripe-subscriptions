@@ -11,65 +11,65 @@ class CustomIntegration implements IntegrationBase {
   }
 
   async create(query: { json: object; extra: { [key: string]: string } }) {
-    if (query.extra.subtype === "core") {
+    if (query.extra.type === "Subscriptions") {
       return await this.stripe.subscriptions.create(query.json as Stripe.SubscriptionCreateParams)
     }
-    if (query.extra.subtype === "items") {
+    if (query.extra.type === "Subscription Items") {
       return await this.stripe.subscriptionItems.create(query.json as Stripe.SubscriptionItemCreateParams)
     }
-    if (query.extra.subtype === "schedules") {
+    if (query.extra.type === "Subscription Schedules") {
       return await this.stripe.subscriptionSchedules.create(query.json as Stripe.SubscriptionScheduleCreateParams)
     }
     throw new Error("You must provide a type!")
   }
 
   async read(query: { id: string; extra: { [key: string]: string } }) {
-    if (query.extra.subtype === "core") {
+    if (query.extra.type === "Subscriptions") {
       return await this.stripe.subscriptions.retrieve(query.id)
     }
-    if (query.extra.subtype === "items") {
+    if (query.extra.type === "Subscription Items") {
       return await this.stripe.subscriptionItems.retrieve(query.id)
     }
-    if (query.extra.subtype === "schedules") {
+    if (query.extra.type === "Subscription Schedules") {
       return await this.stripe.subscriptionSchedules.retrieve(query.id)
     }
     throw new Error("You must provide a type!")
   }
 
   async update(query: { id: string, body: string; extra: { [key: string]: string } }) {
-    if (query.extra.subtype === "core") {
+    if (query.extra.type === "Subscriptions") {
       return await this.stripe.subscriptions.update(query.id, JSON.parse(query.body))
     }
-    if (query.extra.subtype === "items") {
+    if (query.extra.type === "Subscription Items") {
       return await this.stripe.subscriptionItems.update(query.id, JSON.parse(query.body))
     }
-    if (query.extra.subtype === "schedules") {
+    if (query.extra.type === "Subscription Schedules") {
       return await this.stripe.subscriptionSchedules.update(query.id, JSON.parse(query.body))
     }
     throw new Error("You must provide a type!")
   }
 
   async delete(query: { id: string; extra: { [key: string]: string } }) {
-    if (query.extra.subtype === "core") {
+    if (query.extra.type === "Subscriptions") {
       return await this.stripe.subscriptions.del(query.id)
     }
-    if (query.extra.subtype === "items") {
+    if (query.extra.type === "Subscription Items") {
       return await this.stripe.subscriptionItems.del(query.id)
     }
-    if (query.extra.subtype === "schedules") {
+    if (query.extra.type === "Subscription Schedules") {
       return await this.stripe.subscriptionSchedules.cancel(query.id)
     }
     throw new Error("You must provide a type!")
   }
 
   async list(query: { json: object; extra: { [key: string]: string } }) {
-    if (query.extra.subtype === "core") {
+    if (query.extra.type === "Subscriptions") {
       return await this.stripe.subscriptions.list(query.json)
     }
-    if (query.extra.subtype === "items") {
+    if (query.extra.type === "Subscription Items") {
       return await this.stripe.subscriptionItems.list(query.json as Stripe.SubscriptionItemListParams)
     }
-    if (query.extra.subtype === "schedules") {
+    if (query.extra.type === "Subscription Schedules") {
       return await this.stripe.subscriptionSchedules.list(query.json)
     }
     throw new Error("You must provide a type!")
