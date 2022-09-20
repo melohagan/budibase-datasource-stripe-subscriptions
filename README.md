@@ -1,5 +1,8 @@
-# Stripe-subscriptions-datasource
-This is a readme for your new Budibase plugin.
+# Stripe-subscriptions-custom datasource
+Supports the following:
+ - Subscriptions
+ - Subscription Items
+ - Subscription Schedules
 
 # Description
 Perform CRUD operations on Stripe subscriptions, including items and schedules
