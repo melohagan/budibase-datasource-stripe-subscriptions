@@ -4,6 +4,8 @@ Supports the following:
  - Subscription Items
  - Subscription Schedules
 
+Official docs: https://stripe.com/docs/api/subscriptions?lang=node
+
 # Description
 Perform CRUD operations on Stripe subscriptions, including items and schedules
 
