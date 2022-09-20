@@ -1,0 +1,126 @@
+{
+  "type": "datasource",
+  "metadata": {},
+  "schema": {
+    "docs": "https://stripe.com/docs/api/subscriptions?lang=node",
+    "friendlyName": "Stripe subscriptions",
+    "type": "API",
+    "description": "Performs CRUD operations for Stripe subscriptions, including items and schedules",
+    "datasource": {
+      "apiKey": {
+        "type": "password",
+        "required": true
+      }
+    },
+    "query": {
+      "create": {
+        "type": "json"
+      },
+      "read": {
+        "type": "fields",
+        "fields": {
+          "id": {
+            "display": "ID",
+            "type": "string",
+            "required": true
+          }
+        }
+      },
+      "update": {
+        "type": "fields",
+        "fields": {
+          "id": {
+            "display": "ID",
+            "type": "string",
+            "required": true
+          },
+          "body": {
+            "type": "json",
+            "required": true
+          }
+        }
+      },
+      "delete": {
+        "type": "fields",
+        "fields": {
+          "id": {
+            "display": "ID",
+            "type": "string",
+            "required": true
+          }
+        }
+      },
+      "list": {
+        "type": "json"
+      },
+      "searchSubscriptions": {
+        "type": "fields",
+        "fields": {
+          "query": {
+            "required": true,
+            "type": "string"
+          },
+          "limit": {
+            "required": false,
+            "type": "number",
+            "default": 10
+          }, 
+          "page": {
+            "required": false,
+            "type": "string"
+          }
+        }
+      },
+      "releaseSchedule": {
+        "type": "fields",
+        "fields": {
+          "id": {
+            "display": "ID",
+            "type": "string",
+            "required": true
+          }
+        }
+      }
+    },
+    "extra": {
+      "type": {
+        "displayName": "Sub-type",
+        "type": "list",
+        "required": true,
+        "data": {
+          "create": [
+            "Subscriptions",
+            "Subscription Items",
+            "Subscription Schedules"
+          ],
+          "read": [
+            "Subscriptions",
+            "Subscription Items",
+            "Subscription Schedules"
+          ],
+          "update": [
+            "Subscriptions",
+            "Subscription Items",
+            "Subscription Schedules"
+          ],
+          "delete": [
+            "Subscriptions",
+            "Subscription Items",
+            "Subscription Schedules"
+          ],
+          "list": [
+            "Subscriptions",
+            "Subscription Items",
+            "Subscription Schedules"
+          ],
+          "searchSubscriptions": [
+            "Subscriptions"
+          ],
+          "releaseSchedule": [
+            "Subscription Schedules"
+          ]
+        }
+      }
+    }
+  }
+}
