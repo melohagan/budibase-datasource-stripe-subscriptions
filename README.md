@@ -1,4 +1,5 @@
-# Stripe-subscriptions-custom datasource
+# Stripe subscriptions
+
 Supports the following:
  - Subscriptions
  - Subscription Items
